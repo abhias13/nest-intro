@@ -17,7 +17,7 @@ export class ProductsController{
         return await this.productsService.insertProduct(prodTitle, prodDesc, prodPrice);
     }
 
-    @Get()
+    @Get() 
     async getProducts(){
         return await this.productsService.getAllItem();
     }

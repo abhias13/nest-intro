@@ -22,6 +22,5 @@ import { ProductsModule } from './products/products.module';
       },
     }),
   ],
-  controllers: [CatsController],
 }) 
 export class AppModule {}

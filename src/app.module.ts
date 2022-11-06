@@ -4,7 +4,6 @@ import { Company } from './products/entity/company.entity';
 import { Product1 } from './products/entity/product1.entity';
 import { Product2 } from './products/entity/product2.entity';
 import { ProductsModule } from './products/products.module';
-
 @Module({
   imports: [
     ProductsModule,
@@ -23,5 +22,6 @@ import { ProductsModule } from './products/products.module';
       },
     }),
   ],
+  controllers: [CatsController],
 }) 
 export class AppModule {}

@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Product } from "./product.entity";
 
 @Entity({
@@ -21,6 +21,9 @@ export class Company {
         this.description = desc;
     }
 
-    @OneToMany(()=> Product,(product)=>product.company)
+    @OneToMany(()=> Product,(product)=>product.company,{
+        cascade: true
+    })
+    @JoinTable()
     products : Product[];
 }

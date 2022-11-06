@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Company } from './products/entity/company.entity';
-import { Product1 } from './products/entity/product1.entity';
-import { Product2 } from './products/entity/product2.entity';
+import { Product } from './products/entity/product.entity';
 import { ProductsModule } from './products/products.module';
 @Module({
   imports: [
@@ -14,7 +13,7 @@ import { ProductsModule } from './products/products.module';
       username: 'NS2PDev',
       password: 'Tpspl@123',
       database: 'DummyData',
-      entities: [Product1,Product2,Company],
+      entities: [Product,Company],
       autoLoadEntities: true,
       synchronize: true,
       extra: {

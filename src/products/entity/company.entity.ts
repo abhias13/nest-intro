@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Product } from "./product.entity";
 
 @Entity({
     name:"Company"
@@ -18,6 +19,8 @@ export class Company {
         this.id = id;
         this.title = title;
         this.description = desc;
-
     }
+
+    @OneToMany(()=> Product,(product)=>product.company)
+    products : Product[];
 }

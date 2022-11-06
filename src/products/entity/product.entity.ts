@@ -1,9 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Company } from "./company.entity";
 
 @Entity({
     name:"Products"
 })
-export class Product1 {
+export class Product{
     @PrimaryGeneratedColumn()
     id: number //always unique
 
@@ -22,4 +23,7 @@ export class Product1 {
         this.description = desc;
         this.Price = price;
     }
+
+    @ManyToOne(()=>Company, (company)=> company.products)
+    company : Company;
 }

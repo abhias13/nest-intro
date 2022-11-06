@@ -1,19 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Product1 } from './entity/product1.entity';
-import { ProductRepository } from './product.repository';
+import { Repository } from 'typeorm';
+import { Product } from './entity/product.entity';
 
 @Injectable()
 export class ProductsService {
 
   constructor(
-    @InjectRepository(Product1)
-    private productRepos: ProductRepository, //new Repostiory
+    @InjectRepository(Product)
+    private productRepos: Repository<Product>, //new Repostiory
   ) {}
 
   async insertProduct(title: string, desc: string, price: number) {
     const prodId = Math.random() * 100;
-    const newProduct = new Product1(title,desc,price,prodId);
+    const newProduct = new Product(title,desc,price,prodId);
     console.log(newProduct);
     return await this.productRepos.save(newProduct);
   }

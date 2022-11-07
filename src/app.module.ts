@@ -2,10 +2,12 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Company } from './products/entity/company.entity';
 import { Product } from './products/entity/product.entity';
-import { ProductsModule } from './products/products.module';
+import { CompanyModule } from './products/Modules/company.module';
+import { ProductsModule } from './products/Modules/products.module';
+
 @Module({
   imports: [
-    ProductsModule,
+    ProductsModule,CompanyModule,
     TypeOrmModule.forRoot({ 
       type: 'mssql',
       host: '20.198.100.95',

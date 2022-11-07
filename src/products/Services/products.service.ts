@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Product } from './entity/product.entity';
+import { Product } from '../entity/product.entity';
 
 @Injectable()
 export class ProductsService {
@@ -49,12 +49,5 @@ export class ProductsService {
                     .where(query)
                     .execute()
     return result; 
-  }
-
-  async countitems(){
-    const query = {
-  }
-  const result = await this.productRepos.count()
-  return result;
   }
 }

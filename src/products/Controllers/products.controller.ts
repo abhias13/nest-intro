@@ -1,6 +1,5 @@
 import { Body, Controller, Post, Get, Param, Delete, Put } from "@nestjs/common";
-import { ProductsService } from "./products.service";
-// const fetch =  require("node-fetch");
+import { ProductsService } from "../Services/products.service";
 
 
 @Controller('products')
@@ -46,12 +45,6 @@ export class ProductsController{
     @Delete(':id')
     async removeProduct(@Param('id') prodId: number){
       return await this.productsService.deleteItem(prodId);
-    }
-
-    @Get('count')
-    async Countproduct(){
-        
-        return await this.productsService.countitems();
     }
 
 }   

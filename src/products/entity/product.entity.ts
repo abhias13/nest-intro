@@ -15,13 +15,13 @@ export class Product{
     description: string;
     
     @Column()
-    Price: number;
+    price: number;
 
     constructor(title:string, desc:string, price:number,id?:number){
         this.id = id;
         this.title = title;
         this.description = desc;
-        this.Price = price;
+        this.price = price;
     }
 
     @ManyToOne(()=>Company, (company)=> company.products)

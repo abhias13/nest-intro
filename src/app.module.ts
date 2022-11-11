@@ -1,13 +1,15 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Company } from './products/entity/company.entity';
-import { Product } from './products/entity/product.entity';
-import { CompanyModule } from './products/Modules/company.module';
-import { ProductsModule } from './products/Modules/products.module';
+import { Company } from './NestJsApi/entity/company.entity';
+import { Customer } from './NestJsApi/entity/customer.entity';
+import { Product } from './NestJsApi/entity/product.entity';
+import { CompanyModule } from './NestJsApi/Modules/company.module';
+import { CustomersModule } from './NestJsApi/Modules/customer.module';
+import { ProductsModule } from './NestJsApi/Modules/products.module';
 
 @Module({
   imports: [
-    ProductsModule,CompanyModule,
+    ProductsModule,CompanyModule,CustomersModule,
     TypeOrmModule.forRoot({ 
       type: 'mssql',
       host: '20.198.100.95',
@@ -15,7 +17,7 @@ import { ProductsModule } from './products/Modules/products.module';
       username: 'NS2PDev',
       password: 'Tpspl@123',
       database: 'DummyData',
-      entities: [Product,Company],
+      entities: [Product,Company,Customer],
       autoLoadEntities: true,
       synchronize: true,
       extra: {

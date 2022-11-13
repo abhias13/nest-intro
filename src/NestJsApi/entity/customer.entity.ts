@@ -17,13 +17,14 @@ export class Customer{
     @Column()
     address: string;
 
+    
+    @ManyToOne(()=>Company, (company)=> company.customers)
+    company : Company;
+    
     constructor(name:string, age:number, address:string,id?:number){
         this.id = id;
         this.name = name;
         this.age = age;
         this.address = address;
     }
-
-    @ManyToOne(()=>Company, (company)=> company.customers)
-    company : Company;
- }
+}

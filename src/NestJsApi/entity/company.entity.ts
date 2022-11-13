@@ -15,22 +15,21 @@ export class Company {
     @Column()
     description: string;
     
+    @OneToMany(()=> Product,(product)=>product.company,{
+        cascade: true
+    })
+    @JoinTable()
+    products : Product[];
+    
+    @OneToMany(()=> Customer,(customer)=>customer.company,{
+        cascade: true
+    })
+    @JoinTable()
+    customers : Customer[];
 
     constructor(title:string, desc:string, id?:number){
         this.id = id;
         this.title = title;
         this.description = desc;
     }
-
-    @OneToMany(()=> Product,(product)=>product.company,{
-        cascade: true
-    })
-    @JoinTable()
-    products : Product[];
-
-    @OneToMany(()=> Customer,(customer)=>customer.company,{
-        cascade: true
-    })
-    @JoinTable()
-    customers : Customer[];
 }

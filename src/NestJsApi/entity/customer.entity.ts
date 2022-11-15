@@ -18,7 +18,7 @@ export class Customer{
     address: string;
 
     
-    @ManyToOne(()=>Company, (company)=> company.customers)
+    @ManyToOne(()=>Company, (company)=> company.Customers)
     company : Company;
     
     constructor(name:string, age:number, address:string,id?:number){

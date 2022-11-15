@@ -7,7 +7,7 @@ import { ProductsService } from "../Services/products.service";
 
 @Module({
     imports:[TypeOrmModule.forFeature([Product])],
-    exports: [TypeOrmModule],
+    // exports: [TypeOrmModule],
     controllers: [ProductsController],
     providers: [ProductsService], 
 })

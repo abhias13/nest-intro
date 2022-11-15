@@ -1,6 +1,6 @@
 import { Body, Controller, Post, Get, Param, Delete, Put } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
-import { CreateProductsDto } from "../dtos/CreateProducts.dto";
+import { CreateProductsDto } from "../ViewModel/CreateProducts.dto";
 import { ProductsService } from "../Services/products.service";
 
 @ApiTags('Products')

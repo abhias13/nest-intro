@@ -27,11 +27,7 @@ export class CustomerService{
             return this.customerRepos.findOneBy({id});
         }
 
-        getCustomerByName(name: string){
-            return this.customerRepos.findOneBy({name});
-        }
-
-        async getcompanydetails(name:string){
+        async getcompanydetails(name: string){
             const details = await this.customerRepos.findOne({
                 where: {
                     name,
@@ -44,6 +40,9 @@ export class CustomerService{
             return details;
           }
         
+          deleteCustomer(name: string){
+            return this.customerRepos.delete({name});
+          }
         
 
 }

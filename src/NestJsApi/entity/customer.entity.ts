@@ -22,6 +22,7 @@ export class Customer{
     company : Company;
     
     constructor(name:string, age:number, address:string,id?:number){
+        
         this.id = id;
         this.name = name;
         this.age = age;

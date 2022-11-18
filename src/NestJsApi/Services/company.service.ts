@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
-import { CreateCompanyDto } from "../dtos/CreateCompany.dto";
+import { CreateCompanyDto } from "../ViewModel/CreateCompany.dto";
 import { Company } from "../entity/company.entity";
 
 @Injectable()
@@ -18,5 +18,6 @@ export class CompanyService{
       getcompany(title: string){
         return this.CompanyRepos.findOneBy({title});
       }
-    
+
+
 }

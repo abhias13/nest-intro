@@ -1,7 +1,7 @@
 import { Body, Controller,Get, Post,Param} from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
-import { CreateCompanyDto } from "../dtos/CreateCompany.dto";
 import { CompanyService } from "../Services/company.service";
+import { CreateCompanyDto } from "../ViewModel/CreateCompany.dto";
 
 @ApiTags('Company')
 @Controller('company')

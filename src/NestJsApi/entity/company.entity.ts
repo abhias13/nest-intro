@@ -25,11 +25,11 @@ export class Company {
         cascade: true
     })
     @JoinTable()
-    customers : Customer[];
+    Customers : Customer[];
 
     constructor(title:string, desc:string, id?:number){
         this.id = id;
         this.title = title;
-        this.description = desc;
+        this.description = desc; 
     }
 }

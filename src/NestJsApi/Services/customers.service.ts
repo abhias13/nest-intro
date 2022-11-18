@@ -1,7 +1,7 @@
-import { Injectable,Param } from '@nestjs/common';
+import { Inject, Injectable,Param ,forwardRef} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateCustomerDto } from '../dtos/CreateCustomer.dto';
+import { CreateCustomerDto } from '../ViewModel/CreateCustomer.dto';
 import { Customer } from '../entity/customer.entity';
 
 @Injectable()
@@ -9,7 +9,8 @@ export class CustomerService{
 
     constructor(
         @InjectRepository(Customer) 
-        private customerRepos: Repository<Customer>){
+        private customerRepos: Repository<Customer>,
+        ){
 
         }
 
@@ -25,5 +26,23 @@ export class CustomerService{
         getCustomer(id: number){
             return this.customerRepos.findOneBy({id});
         }
+
+        async getcompanydetails(name: string){
+            const details = await this.customerRepos.findOne({
+                where: {
+                    name,
+                },
+                relations: {
+                    company: true,
+                },
+            })
+            
+            return details;
+          }
+        
+          deleteCustomer(name: string){
+            return this.customerRepos.delete({name});
+          }
+        
 
 }
